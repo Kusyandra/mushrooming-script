@@ -2,6 +2,7 @@
 -- Mushrooming: ESP + Speed + Auto-Cut + Menu (Potassium)
 -- Бинды: F - меню, G - авто-разрезание
 -- ============================================================
+print("1. Скрипт начал работу")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -36,6 +37,7 @@ local function normalizeName(name)
     return n:gsub("[%s'%-%._]", "")
 end
 
+print("2. Списки созданы")
 local mushroomLookup = {}
 local enabledMushrooms = {}
 for _, list in pairs(mushroomsByRarity) do
@@ -102,6 +104,7 @@ local function getCanonicalName(modelName)
     return nil
 end
 
+print("3. Функции ESP готовы")
 local function scanMushroomsFolder()
     local folder = workspace:FindFirstChild("Mushrooms")
     if not folder then return end
@@ -161,6 +164,7 @@ RunService.Heartbeat:Connect(function()
     end
 end)
 
+print("4. Ускорение готово")
 local speedConnection = nil
 local function applySpeed()
     local character = player.Character
@@ -228,6 +232,7 @@ task.spawn(function()
 end)
 
 -- ================== МЕНЮ ==================
+print("5. Начинаю создавать меню")
 local gui = Instance.new("ScreenGui")
 gui.Name = "MushroomESP_Menu"
 gui.ResetOnSpawn = false
